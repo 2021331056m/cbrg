@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #0D4F6B;
+  --color-primary-light: #1A6F91;
+  --color-accent: #00D4FF;
+  --color-accent-dim: #00A8CC;
+  --color-surface: #0A1628;
+  --color-surface-2: #0F1F3D;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #050B18;
+  --foreground: #E8EDF5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+}
+
+/* Base typography */
+html, body {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, .h1 { font-size: 2.25rem; line-height: 1.05; letter-spacing: -0.02em; }
+h2, .h2 { font-size: 1.5rem; line-height: 1.15; }
+h3, .h3 { font-size: 1.125rem; }
+
+/* Section spacing for clearer rhythm */
+section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+section.section-tight { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050B18;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D4F6B;
+  border-radius: 3px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 212, 255, 0.2);
+  color: #fff;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #00D4FF, #0D4F6B 60%, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow utilities (muted for cleaner look) */
+.glow-accent {
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.18);
+}
+.text-glow {
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.22);
+}
+
+/* DNA helix animation */
+@keyframes helix-drift {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,212,255,0.2); }
+  50%       { box-shadow: 0 0 24px rgba(0,212,255,0.5); }
+}
+
+.animate-fade-up      { animation: fade-up 0.6s ease forwards; }
+.animate-fade-in      { animation: fade-in 0.4s ease forwards; }
+.animate-float        { animation: float 6s ease-in-out infinite; }
+.animate-marquee      { animation: marquee 30s linear infinite; }
+.animate-pulse-glow   { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* Page snap scrolling: main scroll container and section snap points */
+main {
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+}
+
+/* Cleaner, organized spacing and max-width for content */
+:root {
+  --site-max-width: 1200px;
+  --content-padding: 1.25rem;
+  --muted-foreground: #9aa6b8;
+  --muted-surface: #071018;
+}
+
+.container {
+  max-width: var(--site-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+}
+
+/* Typographic helpers */
+.lead {
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+}
+
+/* Button utilities */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.55rem 1.05rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,30,40,0.12); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted-foreground);
+  padding: 0.5rem 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+.btn-ghost:hover { color: var(--color-accent); border-color: rgba(0,212,255,0.12); }
+
+/* Subtle border and reduced header contrast for a cleaner look */
+.site-border {
+  border-color: rgba(255,255,255,0.04);
+}
+
+/* Make images and media scale nicely within containers */
+img, video { max-width: 100%; height: auto; }
+
+/* Card utility for lists and panels */
+.card {
+  background: var(--color-surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(2,8,20,0.45);
+  border-color: rgba(0,212,255,0.08);
+}
+
+/* Headings refinement */
+h1 { font-weight: 800; letter-spacing: -0.025em; }
+h2 { font-weight: 700; }
+h3 { font-weight: 600; }
+
+/* Next section button */
+.next-section-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color: var(--muted-foreground);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 160ms ease, background 160ms;
+}
+.next-section-btn:hover { transform: translateY(-4px); color: var(--color-accent); border-color: rgba(0,212,255,0.12); }
