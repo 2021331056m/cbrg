@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ExternalLink, Download, FileText } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import type { Publication } from "@/types";
@@ -36,12 +35,9 @@ export default function PublicationCard({ publication: pub }: PublicationCardPro
               <Badge variant="neutral">{pub.year}</Badge>
             )}
             {pub.research_areas && (
-              <Link
-                href={`/research/${pub.research_areas.slug}`}
-                className="text-xs font-semibold text-[#0284C7] hover:underline"
-              >
+              <span className="text-xs font-semibold text-[#0284C7]">
                 {pub.research_areas.title}
-              </Link>
+              </span>
             )}
           </div>
 

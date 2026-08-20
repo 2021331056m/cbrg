@@ -1,9 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import HeroSection from "@/components/home/HeroSection";
-import ResearchHighlights from "@/components/home/ResearchHighlights";
 import StatsCounter from "@/components/home/StatsCounter";
 import LatestNews from "@/components/home/LatestNews";
-import type { ResearchArea, NewsFeed } from "@/types";
+import type { NewsFeed } from "@/types";
 
 export const revalidate = 3600;
 
@@ -11,13 +10,11 @@ export default async function HomePage() {
   const supabase = await createClient();
 
   const [
-    { data: areas },
     { count: pubCount },
     { count: projectCount },
     { count: memberCount },
     { data: news },
   ] = await Promise.all([
-    supabase.from("research_areas").select("*").order("sort_order"),
     supabase.from("publications").select("*", { count: "exact", head: true }),
     supabase
       .from("projects")
@@ -42,7 +39,6 @@ export default async function HomePage() {
         projects={projectCount ?? 0}
         members={memberCount ?? 0}
       />
-      <ResearchHighlights areas={(areas as ResearchArea[]) ?? []} />
       <LatestNews items={(news as NewsFeed[]) ?? []} />
     </>
   );

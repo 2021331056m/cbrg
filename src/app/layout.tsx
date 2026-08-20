@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageScrollTransition from "@/components/layout/PageScrollTransition";
-import NextPageBanner from "@/components/layout/NextPageBanner";
 import PageTransitionWrapper from "@/components/layout/PageTransitionWrapper";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 
@@ -55,7 +54,6 @@ export default function RootLayout({
         <main className="flex-1 flex flex-col">
           <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </main>
-        <NextPageBanner />
         <Footer />
         <PageScrollTransition />
       </body>

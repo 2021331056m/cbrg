@@ -5,12 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 
 const PAGE_ORDER = [
   "/",
-  "/research",
   "/projects",
   "/publications",
   "/members",
+  "/collaborations",
   "/alumni",
-  "/funding",
   "/news",
   "/contact",
 ];

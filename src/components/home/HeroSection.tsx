@@ -3,42 +3,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Microscope } from "lucide-react";
-import DNAHelix from "./DNAHelix";
+import HeroSlideshow from "./HeroSlideshow";
 
 const words = ["Cancer", "Biology", "Research", "Group"];
 
 export default function HeroSection() {
   return (
-    <section className="snap-section relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F8FAFC]">
-      {/* Light gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#F1F5F9]" />
-
-      {/* Soft blue radial glow top-center */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#0284C7]/10 rounded-full blur-[120px] pointer-events-none" />
-      {/* Soft cyan radial glow bottom-right */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#002147]/5 rounded-full blur-[100px] pointer-events-none" />
-
-      {/* Molecular grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #0284C7 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* DNA Helix — left */}
-      <div className="absolute left-4 md:left-14 top-1/2 -translate-y-1/2 opacity-80">
-        <DNAHelix />
-      </div>
-      {/* DNA Helix — right (mirrored via scale) */}
-      <div className="absolute right-4 md:right-14 top-1/2 -translate-y-1/2 scale-x-[-1] opacity-80">
-        <DNAHelix />
-      </div>
+    <section className="snap-section relative min-h-screen flex items-center justify-center overflow-hidden bg-[#002147]">
+      <HeroSlideshow />
+      <div className="absolute inset-0 bg-[#002147]/25 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#002147]/45 via-transparent to-[#002147]/35 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 py-10 md:px-12 md:py-14 max-w-4xl mx-4 bg-[radial-gradient(ellipse_at_center,rgba(248,250,252,0.96)_0%,rgba(248,250,252,0.84)_48%,rgba(248,250,252,0)_100%)]">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -95,10 +72,10 @@ export default function HeroSection() {
           transition={{ delay: 0.9, duration: 0.5 }}
         >
           <Link
-            href="/research"
+            href="/projects"
             className="inline-flex items-center gap-2 bg-[#002147] hover:bg-[#0284C7] text-white px-7 py-3.5 rounded-lg font-semibold text-sm transition-all duration-200 shadow-md shadow-[#002147]/20 hover:shadow-lg group"
           >
-            Explore Research
+            Explore Projects
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
