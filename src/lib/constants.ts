@@ -5,10 +5,10 @@ export const SITE_DESCRIPTION =
 
 export const PRIMARY_NAV = [
   { label: "Home", href: "/" },
-  { label: "Research", href: "/research" },
   { label: "Projects", href: "/projects" },
   { label: "Publications", href: "/publications" },
   { label: "Members", href: "/members" },
+  { label: "Collaboration", href: "/collaboration" },
   { label: "Alumni", href: "/alumni" },
 ];
 
