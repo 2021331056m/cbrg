@@ -18,8 +18,7 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Room 313, Center of Excellence, Dept. of Biochemistry & Molecular Biology
-      Shahjalal University of Science & Technology Sylhet-3114, Bangladesh",
+    value: "Room 313, Center of Excellence, Dept. of Biochemistry & Molecular Biology           Shahjalal University of Science & Technology Sylhet-3114, Bangladesh",
     href: null,
   },
 ];
