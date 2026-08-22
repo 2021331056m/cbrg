@@ -51,7 +51,7 @@ export default function Footer() {
                 href="mailto:hmsyfuddin@sust.edu"
                 className="hover:text-[#38BDF8] transition-colors"
               >
-                hmsyfuddin@sust.edu
+                syfuddin-bmb@sust.edu
               </a>
             </div>
           </div>
