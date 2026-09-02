@@ -18,6 +18,9 @@ export default function Footer() {
           <p>© {year} {SITE_NAME}. All rights reserved.</p>
           <p>Dept. of Biochemistry &amp; Molecular Biology, SUST, Bangladesh</p>
         </div>
+        <div className="mt-3 text-center text-[11px] text-slate-300">
+          Developed by <span className="font-medium text-slate-100">Maliha Nusrat</span>, <span className="font-medium text-slate-100">Mahmud Hasan Sifat</span>, <span className="font-medium text-slate-100">Najiha Yousuf</span>
+        </div>
       </footer>
     );
   }
@@ -112,6 +115,9 @@ export default function Footer() {
           <p>
             Dept. of Biochemistry &amp; Molecular Biology, SUST, Bangladesh
           </p>
+        </div>
+        <div className="mt-4 text-center text-[11px] text-slate-300">
+          Developed by <span className="font-medium text-slate-100">Maliha Nusrat</span>, <span className="font-medium text-slate-100">Mahmud Hasan Sifat</span>, <span className="font-medium text-slate-100">Najiha Yousuf</span>
         </div>
       </div>
     </footer>

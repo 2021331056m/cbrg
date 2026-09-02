@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -10,14 +10,25 @@ export const metadata: Metadata = {
 
 const collaborators = [
   {
-    title: "Bangladesh Research Partners",
-    description: "Collaborative work across cancer biology, genomics, and translational research.",
-    href: "/collaborations/bangladesh",
+    title: "Dr. Md. Mashiar Rahman",
+    subtitle: "Lead Researcher, Molecular and Cellular Biology Laboratory",
+    href: "https://just.edu.bd/t/mashiar",
+    logo: "/images/mashiur.png",
+    logoAlt: "Dr. Md. Mashiar Rahman logo",
   },
   {
-    title: "International Research Partners",
-    description: "Shared scientific interests, methods, and opportunities across borders.",
-    href: "/collaborations/international",
+    title: "Department of Biotechnology and Genetic Engineering",
+    subtitle: "Islamic University, Bangladesh",
+    href: "https://www.iu.ac.bd/index.php/site/dept/BGE",
+    logo: "/images/Islamic university.jpg",
+    logoAlt: "Islamic University Bangladesh logo",
+  },
+  {
+    title: "Department of Oncology",
+    subtitle: "University of Oxford",
+    href: "https://www.oncology.ox.ac.uk/",
+    logo: "https://www.oncology.ox.ac.uk/images/homepage/oncology-logo-msd-invert.png",
+    logoAlt: "University of Oxford Department of Oncology logo",
   },
 ];
 
@@ -54,28 +65,29 @@ export default function CollaborationsPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {collaborators.map(({ title, description, href }) => (
-            <article
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {collaborators.map(({ title, subtitle, href, logo, logoAlt }) => (
+            <Link
               key={title}
-              className="bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all"
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="group block bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all"
             >
-              <div className="h-36 border-b border-slate-200 bg-[#F8FAFC] flex items-center justify-center">
-                <div className="w-16 h-16 rounded-lg border border-dashed border-[#0284C7]/50 bg-white flex items-center justify-center">
-                  <Building2 className="w-7 h-7 text-[#0284C7]" />
-                </div>
+              <div className="h-36 border-b border-slate-200 bg-[#F8FAFC] flex items-center justify-center p-4 overflow-hidden">
+                <img
+                  src={logo}
+                  alt={logoAlt}
+                  className="h-full w-full object-contain p-2"
+                />
               </div>
-              <div className="p-5">
-                <h3 className="text-[#002147] font-extrabold text-lg mb-2">{title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-5">{description}</p>
-                <Link
-                  href={href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0284C7] hover:text-[#002147] transition-colors group"
-                >
-                  Visit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+              <div className="p-5 text-center">
+                <h3 className="text-[#002147] font-extrabold text-base md:text-lg leading-snug group-hover:text-[#0284C7] transition-colors">
+                  {title}
+                </h3>
+                <p className="mt-2 text-slate-600 text-sm leading-relaxed">{subtitle}</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
