@@ -61,8 +61,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
         >
-          Pioneering discoveries in cancer molecular biology, genomics, and personalized
-          medicine at Shahjalal University of Science &amp; Technology.
+         
         </motion.p>
 
         <motion.div
