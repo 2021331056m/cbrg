@@ -26,7 +26,7 @@ export default async function PublicationsPage() {
       <PageHero
         tag="Publications"
         title="Scientific Publications"
-        subtitle="Peer-reviewed research output from our group. Filter by year, topic, or search by author."
+        subtitle="Peer-reviewed research output from our group."
       />
       <section className="snap-section max-w-5xl mx-auto px-4 pb-20">
         <PublicationList
