@@ -63,6 +63,8 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
           {member.department && (
             <p className="text-slate-500 text-xs mt-0.5">{member.department}</p>
           )}
+            <p className="text-slate-500 text-xs mt-0.5">{member.department} Research Interest:
+            </p>
 
           {member.research_interest && (
             <p className={`mt-3 text-slate-600 text-sm leading-relaxed ${featured ? "" : "line-clamp-2"}`}>
