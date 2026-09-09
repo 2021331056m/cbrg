@@ -66,12 +66,17 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
             
 
           {member.research_interest && (
-            
-            <p className={`mt-3 text-slate-600 text-xs leading-relaxed ${featured ? "" : "line-clamp-2"}`}>Research Interest: </p>
-            <p>
-              {member.research_interest}
-            </p>
-          )}
+           <>
+            {member.role !== "Principal Investigator" && (
+          <p
+                 className={`mt-3 text-slate-600 text-xs leading-relaxed ${featured ? "" : "line-clamp-2" }`}>
+              Research Interest:
+           </p>
+             )}
+
+                <p>{member.research_interest} </p>
+           </>
+           )}
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
             {member.email && (
