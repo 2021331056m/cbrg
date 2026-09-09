@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FlaskConical, GraduationCap, Mail } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -8,7 +8,54 @@ export const metadata: Metadata = {
   description: "Research collaborations and partnership opportunities with the Cancer Biology Research Group.",
 };
 
-const collaborators = [
+type Collaborator = {
+  title: string;
+  subtitle: string;
+  href: string;
+  logo: string;
+  logoAlt: string;
+  project?: string;
+  email?: string;
+  scholarLink?: string;
+  linkedinLink?: string;
+  researchGateLink?: string;
+};
+
+const collaborators: Collaborator[] = [
+  {
+    title: "Md Zafrul Hasan, PhD",
+    subtitle: "Associate Professor, Department of Biochemistry and Molecular Biology, SUST",
+    project: "ASPM, HEAT Sub-Project PIN: 13409",
+    email: "zafrul-bmb@sust.edu",
+    href: "https://www.sust.edu/departments/bmb/faculty/zafrul-bmb@sust.edu",
+    logo: "/images/zafrul.jpg",
+    logoAlt: "Md Zafrul Hasan, PhD",
+    scholarLink: "https://scholar.google.com/citations?user=pc7SBUoAAAAJ&hl=en",
+    linkedinLink: "https://bd.linkedin.com/in/zafrul-hasan-295ab889",
+  },
+  {
+    title: "Dr. Ajit Ghosh",
+    subtitle: "Associate Professor, Department of Biochemistry and Molecular Biology, SUST",
+    project: "ASPM, HEAT Sub-Project PIN: 13409",
+    email: "aghosh-bmb@sust.edu",
+    href: "https://www.sust.edu/departments/bmb/faculty/aghosh-bmb@sust.edu",
+    logo: "/images/ajit.jpeg",
+    logoAlt: "Dr. Ajit Ghosh",
+    scholarLink: "https://scholar.google.com/citations?user=VESJwAMAAAAJ&hl=en",
+    linkedinLink: "https://bd.linkedin.com/in/ajit-ghosh-b0a43222",
+    researchGateLink: "https://www.researchgate.net/profile/Ajit-Ghosh",
+  },
+  {
+    title: "Aporajita Das Trisha",
+    subtitle: "Assistant Professor, Department of Biochemistry and Molecular Biology, SUST",
+    project: "SPMT, HEAT Sub-Project PIN: 13409",
+    email: "aporajita-bmb@sust.edu",
+    href: "https://www.sust.edu/departments/bmb/faculty/aporajita-bmb@sust.edu",
+    logo: "/images/trisha.jpg",
+    logoAlt: "Aporajita Das Trisha",
+    scholarLink: "https://scholar.google.com/citations?user=LOe93f8AAAAJ&hl=en",
+    linkedinLink: "https://bd.linkedin.com/in/aporajita-das-trisha-9b07a3141",
+  },
   {
     title: "Dr. Md. Mashiar Rahman",
     subtitle: "Lead Researcher, Molecular and Cellular Biology Laboratory",
@@ -66,28 +113,83 @@ export default function CollaborationsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {collaborators.map(({ title, subtitle, href, logo, logoAlt }) => (
-            <Link
-              key={title}
-              href={href}
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group block bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all"
+          {collaborators.map((collaborator) => (
+            <article
+              key={collaborator.title}
+              className="flex flex-col bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all"
             >
-              <div className="h-36 border-b border-slate-200 bg-[#F8FAFC] flex items-center justify-center p-4 overflow-hidden">
-                <img
-                  src={logo}
-                  alt={logoAlt}
-                  className="h-full w-full object-contain p-2"
-                />
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-[#002147] font-extrabold text-base md:text-lg leading-snug group-hover:text-[#0284C7] transition-colors">
-                  {title}
-                </h3>
-                <p className="mt-2 text-slate-600 text-sm leading-relaxed">{subtitle}</p>
-              </div>
-            </Link>
+              <Link
+                href={collaborator.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="h-44 border-b border-slate-200 bg-[#F8FAFC] flex items-center justify-center overflow-hidden">
+                  <img
+                    src={collaborator.logo}
+                    alt={collaborator.logoAlt}
+                    className={`h-full w-full ${collaborator.project ? "object-cover" : "object-contain p-2"}`}
+                  />
+                </div>
+                <div className="p-5 pb-3 text-center">
+                  <h3 className="text-[#002147] font-extrabold text-base md:text-lg leading-snug group-hover:text-[#0284C7] transition-colors">
+                    {collaborator.title}
+                  </h3>
+                  <p className="mt-2 text-slate-600 text-sm leading-relaxed">{collaborator.subtitle}</p>
+                  {collaborator.project && (
+                    <p className="mt-2 text-xs font-semibold text-[#0284C7]">{collaborator.project}</p>
+                  )}
+                </div>
+              </Link>
+              {(collaborator.email || collaborator.scholarLink || collaborator.linkedinLink || collaborator.researchGateLink) && (
+                <div className="mx-5 mt-auto border-t border-slate-200 py-4 flex flex-wrap items-center justify-center gap-4">
+                  {collaborator.email && (
+                    <a
+                      href={`mailto:${collaborator.email}`}
+                      aria-label={`Email ${collaborator.title}`}
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <Mail className="w-4 h-4" aria-hidden="true" />
+                    </a>
+                  )}
+                  {collaborator.scholarLink && (
+                    <a
+                      href={collaborator.scholarLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${collaborator.title} on Google Scholar`}
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <GraduationCap className="w-4 h-4" aria-hidden="true" />
+                    </a>
+                  )}
+                  {collaborator.linkedinLink && (
+                    <a
+                      href={collaborator.linkedinLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${collaborator.title} on LinkedIn`}
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <span className="inline-flex w-4 h-4 items-center justify-center text-[10px] font-extrabold leading-none" aria-hidden="true">
+                        in
+                      </span>
+                    </a>
+                  )}
+                  {collaborator.researchGateLink && (
+                    <a
+                      href={collaborator.researchGateLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${collaborator.title} on ResearchGate`}
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <FlaskConical className="w-4 h-4" aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+              )}
+            </article>
           ))}
         </div>
 
