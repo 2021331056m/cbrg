@@ -8,7 +8,7 @@ import type { Project } from "@/types";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Ongoing and completed research projects at the Cancer Biology Research Group.",
+  description: "Ongoing and previous research projects at the Cancer Biology Research Group.",
 };
 
 export const revalidate = 3600;
@@ -45,7 +45,7 @@ export default async function ProjectsPage() {
         )}
         {completed.length > 0 && (
           <section className="snap-section">
-            <SectionHeading tag={`${completed.length} completed`} title="Completed Projects" />
+            <SectionHeading tag={`${completed.length} completed`} title="Previous Projects" />
             <div className="space-y-5">
               {completed.map((project) => (
                 <ProjectCard key={project.id} project={project} />
