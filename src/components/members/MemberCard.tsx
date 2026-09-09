@@ -67,7 +67,8 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
 
           {member.research_interest && (
             
-            <p className={`mt-3 text-slate-600 text-xs leading-relaxed ${featured ? "" : "line-clamp-2"}`}>Research Interest:
+            <p className={`mt-3 text-slate-600 text-xs leading-relaxed ${featured ? "" : "line-clamp-2"}`}>Research Interest: </p>
+            <p>
               {member.research_interest}
             </p>
           )}
