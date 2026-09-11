@@ -16,14 +16,7 @@ export default function Footer() {
     </div>
   );
 
-  if (pathname !== "/") {
-    return (
-      <footer className="bg-[#001835] text-slate-400 py-6 border-t border-slate-800 mt-auto text-xs text-center">
-        
-        {developerCredit}
-      </footer>
-    );
-  }
+ 
     
 
   return (
