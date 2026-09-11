@@ -17,16 +17,24 @@ export default function Footer() {
   );
 
   if (pathname !== "/") {
+    return (
+      <footer className="bg-[#001835] text-slate-400 py-6 border-t border-slate-800 mt-auto text-xs text-center">
+        
+        {developerCredit}
+      </footer>
+    );
+  }
     
 
   return (
     <footer className="snap-section bg-[#001835] text-slate-200 border-t border-slate-800 mt-auto">
-      
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {year} {SITE_NAME}. All rights reserved.</p>
           <p>Dept. of Biochemistry &amp; Molecular Biology, SUST, Bangladesh</p>
         </div>
+        {developerCredit}
+      </div>
        
     </footer>
   );
