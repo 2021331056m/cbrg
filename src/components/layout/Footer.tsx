@@ -36,7 +36,7 @@ export default function Footer() {
     <footer className="snap-section text-slate-200 border-t border-slate-800 mt-auto">
        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
 
-          {/* About Us */}
+         
           <div className="h-full bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition-shadow">
             <h2 className="text-2xl font-extrabold text-[#002147] mb-4">
               About Us
@@ -62,7 +62,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Our Mission */}
+          
           <div className="h-full bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition-shadow">
             <h2 className="text-2xl font-extrabold text-[#002147] mb-4">
               Our Mission
@@ -88,7 +88,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Our Vision */}
+      
           <div className="h-full bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition-shadow">
             <h2 className="text-2xl font-extrabold text-[#002147] mb-4">
               Our Vision
@@ -112,13 +112,13 @@ export default function Footer() {
             </p>
           </div>
 
-        </div>
+        
       
 
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {year} {SITE_NAME}. All rights reserved.</p>
-          <p>Dept. of Biochemistry &amp; Molecular Biology, SUST, Bangladesh</p>
-        </div>
+          <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <p>© {year} {SITE_NAME}. All rights reserved.</p>
+            <p>Dept. of Biochemistry &amp; Molecular Biology, SUST, Bangladesh</p>
+          </div>
         {developerCredit}
       </div>
        
