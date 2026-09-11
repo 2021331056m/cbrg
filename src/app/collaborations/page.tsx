@@ -108,7 +108,7 @@ export default function CollaborationsPage() {
             Our Collaborators
           </span>
           <h2 className="mt-2 text-2xl md:text-3xl font-extrabold text-[#002147]">
-            Academic &amp; Research Institutions
+            Academic &amp; Research Collaborations
           </h2>
         </div>
 
@@ -128,7 +128,7 @@ export default function CollaborationsPage() {
                   <img
                     src={collaborator.logo}
                     alt={collaborator.logoAlt}
-                    className={`h-full w-full ${collaborator.project ? "object-cover" : "object-contain p-2"}`}
+                    className={${collaborator.project ? "object-cover" : "object-contain p-2"}`}
                   />
                 </div>
                 <div className="p-5 pb-3 text-center">
