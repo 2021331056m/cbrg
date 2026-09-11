@@ -128,7 +128,7 @@ export default function CollaborationsPage() {
                   <img
                     src={collaborator.logo}
                     alt={collaborator.logoAlt}
-                    className={${collaborator.project ? "object-cover" : "object-contain p-2"}`}
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="p-5 pb-3 text-center">
