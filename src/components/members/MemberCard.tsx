@@ -74,7 +74,7 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
            </p>
              )}
 
-                <p>{member.research_interest} </p>
+                <p  className="text-slate-700 text-xs font-semibold">{member.research_interest} </p>
            </>
            )}
 
