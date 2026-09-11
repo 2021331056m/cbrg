@@ -116,7 +116,7 @@ export default function StatsCounter({
         </div>
       </section>
 
-      {/* About / Mission / Vision */}
+     
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
 
