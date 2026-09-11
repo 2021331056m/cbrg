@@ -34,7 +34,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#001835] snap-section text-slate-200 border-t border-slate-800 mt-auto"> 
-      
+       <div className="max-w-6xl mx-auto px-4 py-16">
 
           <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <p>© {year} {SITE_NAME}. All rights reserved.</p>
