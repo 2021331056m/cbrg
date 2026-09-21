@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { BookOpen, FlaskConical, Users, Calendar } from "lucide-react";
+import { BookOpen, FlaskConical, Users } from "lucide-react";
 
 interface Stat {
   label: string;
@@ -48,13 +48,12 @@ export default function StatsCounter({ publications, projects, members }: StatsC
     { label: "Publications", value: publications, icon: BookOpen },
     { label: "Active Projects", value: projects, icon: FlaskConical },
     { label: "Team Members", value: members, icon: Users },
-    { label: "Years Active", value: new Date().getFullYear() - 2010, suffix: "+", icon: Calendar },
   ];
 
   return (
     <section className="snap-section py-16 px-4 bg-white border-y border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
