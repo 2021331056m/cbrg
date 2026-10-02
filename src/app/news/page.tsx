@@ -69,7 +69,7 @@ export default async function NewsPage() {
       <PageHero
         tag="News"
         title="Latest News"
-        subtitle="Research announcements, publications, and updates from PubMed and Nature Cancer."
+        subtitle=""
       />
       <section className="snap-section max-w-4xl mx-auto px-4 py-16">
         {items.length === 0 ? (
