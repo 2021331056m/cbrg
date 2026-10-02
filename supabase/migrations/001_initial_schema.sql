@@ -85,7 +85,8 @@ CREATE TABLE IF NOT EXISTS news_feeds (
   source       TEXT NOT NULL CHECK (source IN ('Internal', 'PubMed', 'Nature Cancer')),
   url          TEXT UNIQUE,
   published_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  created_at   TIMESTAMPTZ DEFAULT NOW()
+  created_at   TIMESTAMPTZ DEFAULT NOW(),
+  photo        TEXT
 );
 
 -- Indexes
