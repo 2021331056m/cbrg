@@ -8,7 +8,7 @@ import { formatDate, truncate } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "News",
-  description: "Latest news and research updates from CBRG, PubMed, and Nature Cancer.",
+  description: "",
 };
 
 export const revalidate = 3600;
