@@ -87,7 +87,7 @@ export default async function NewsPage() {
                 {item.image_url && (
                   <div className="w-full overflow-hidden bg-slate-100">
                     <img
-                      src={item.image_url}
+                      src={item.image_url || "https://placehold.co/800x400?text=No+Image"}
                       alt={item.title}
                       className="w-full h-56 sm:h-64 object-cover object-center"
                     />
