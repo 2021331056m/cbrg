@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS news_feeds (
   url          TEXT UNIQUE,
   published_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   created_at   TIMESTAMPTZ DEFAULT NOW(),
-  photo        TEXT
+  image_url    TEXT
 );
 
 -- Indexes
