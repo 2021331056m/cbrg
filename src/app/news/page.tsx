@@ -84,7 +84,6 @@ export default async function NewsPage() {
                 rel={item.url?.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="block overflow-hidden bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl shadow-xs hover:shadow-md transition-all group"
               >
-                {item.image_url && (
                   <div className="w-full overflow-hidden bg-slate-100">
                     <img
                       src={item.image_url || "https://placehold.co/800x400?text=No+Image"}
@@ -92,7 +91,7 @@ export default async function NewsPage() {
                       className="w-full h-56 sm:h-64 object-cover object-center"
                     />
                   </div>
-                )}
+                
 
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3 gap-3">
