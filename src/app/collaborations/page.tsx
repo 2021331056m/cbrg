@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, FlaskConical, GraduationCap, Mail } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
+import { withBasePath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Collaborations",
@@ -126,7 +127,7 @@ export default function CollaborationsPage() {
               >
                 <div className="h-44 border-b border-slate-200 bg-[#F8FAFC] flex items-center justify-center overflow-hidden">
                   <img
-                    src={collaborator.logo}
+                    src={withBasePath(collaborator.logo)}
                     alt={collaborator.logoAlt}
                     className="w-full h-full object-contain object-center p-2"
                   />

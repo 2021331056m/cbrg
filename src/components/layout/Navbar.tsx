@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 import { PRIMARY_NAV, SECONDARY_NAV, SITE_NAME } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 
@@ -43,7 +43,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
               <Image
-                src="/images/logo-icon.png"
+                src={withBasePath("/images/logo-icon.png")}
                 alt={SITE_NAME}
                 width={38}
                 height={38}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, ExternalLink, User } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import type { Member, MemberRole } from "@/types";
+import { withBasePath } from "@/lib/utils";
 
 const roleVariant: Record<MemberRole, "accent" | "info" | "success" | "warning" | "neutral"> = {
   "Principal Investigator":       "accent",
@@ -37,7 +38,7 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
         <div className={`flex-shrink-0 ${featured ? "sm:w-28 sm:h-28" : "w-16 h-16"} relative`}>
           {member.photo_url ? (
             <Image
-              src={member.photo_url}
+              src={withBasePath(member.photo_url)}
               alt={member.name}
               width={featured ? 112 : 64}
               height={featured ? 112 : 64}
