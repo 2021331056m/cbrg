@@ -28,6 +28,7 @@ export const RESEARCH_SLUGS = [
 
 export const MEMBER_ROLES = [
   "Principal Investigator",
+  "MS Researcher",
   "Co-Investigator",
   "PhD Student",
   "Masters Student",

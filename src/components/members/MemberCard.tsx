@@ -13,6 +13,7 @@ const roleVariant: Record<MemberRole, "accent" | "info" | "success" | "warning" 
   "Masters Student":              "warning",
   "Research Assistant":           "neutral",
   "Undergraduate Research Trainee": "neutral",
+  "MS Researcher":"warning",
 };
 
 interface MemberCardProps {

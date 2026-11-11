@@ -21,7 +21,9 @@ export type MemberRole =
   | "PhD Student"
   | "Masters Student"
   | "Research Assistant"
-  | "Undergraduate Research Trainee";
+  | "Undergraduate Research Trainee"
+  | "MS Researcher";
+
 
 export interface Member {
   id: string;
