@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { withBasePath } from "@/lib/utils";
 
 const HERO_SLIDES = [
   "/images/bgphoto1.jpg",
@@ -32,7 +33,7 @@ export default function HeroSlideshow() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
           <Image
-            src={HERO_SLIDES[activeIndex]}
+            src={withBasePath(HERO_SLIDES[activeIndex])}
             alt=""
             fill
             priority={activeIndex === 0}

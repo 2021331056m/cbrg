@@ -1,3 +1,8 @@
+// Sub-path the site is served from (https://ibrn-labs.org/cbrg).
+// Keep this in sync with BASE_PATH in next.config.ts.
+export const BASE_PATH = "/cbrg";
+export const SITE_URL = "https://ibrn-labs.org";
+
 export const SITE_NAME = "Cancer Biology Research Group";
 export const SITE_SHORT_NAME = "CBRG";
 export const SITE_DESCRIPTION =

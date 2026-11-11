@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { withBasePath } from "@/lib/utils";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -25,7 +26,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(withBasePath("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
