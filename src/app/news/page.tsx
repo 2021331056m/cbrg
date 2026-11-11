@@ -8,7 +8,7 @@ import { formatDate, truncate } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "News",
-  description: "Latest news and research updates from CBRG, PubMed, and Nature Cancer.",
+  description: "",
 };
 
 export const revalidate = 3600;
@@ -69,7 +69,7 @@ export default async function NewsPage() {
       <PageHero
         tag="News"
         title="Latest News"
-        subtitle="Research announcements, publications, and updates from PubMed and Nature Cancer."
+        subtitle=""
       />
       <section className="snap-section max-w-4xl mx-auto px-4 py-16">
         {items.length === 0 ? (
@@ -84,15 +84,14 @@ export default async function NewsPage() {
                 rel={item.url?.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="block overflow-hidden bg-white border border-slate-200 hover:border-[#0284C7] rounded-xl shadow-xs hover:shadow-md transition-all group"
               >
-                {item.image_url && (
                   <div className="w-full overflow-hidden bg-slate-100">
                     <img
-                      src={item.image_url}
+                      src={item.image_url || "https://placehold.co/800x400?text=No+Image"}
                       alt={item.title}
                       className="w-full h-56 sm:h-64 object-cover object-center"
                     />
                   </div>
-                )}
+                
 
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3 gap-3">
