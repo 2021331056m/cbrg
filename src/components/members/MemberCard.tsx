@@ -117,32 +117,65 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
               </>
             )}
 
-            <div className="mt-4 flex flex-wrap items-center gap-4">
-              {member.email && (
-                <a
-                  href={`mailto:${member.email}`}
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#0284C7]" />
-                  <span>{member.email}</span>
-                </a>
-              )}
-              {member.linkedin_link && (
-                <a
-                  href={member.linkedin_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
-                >
-                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#0284C7]" fill="currentColor" aria-hidden="true">
-                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
-                  </svg>
-                  LinkedIn
-                </a>
-              )}
-            </div>
+            
+            {(member.email || member.linkedin_link) &&
+              (member.role === "Principal Investigator" ? (
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-[#0284C7]" />
+                      <span>{member.email}</span>
+                    </a>
+                  )}
+                  {member.linkedin_link && (
+                    <a
+                      href={member.linkedin_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#0284C7]" fill="currentColor" aria-hidden="true">
+                        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
+                      </svg>
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <div className="mt-4 flex items-center gap-3">
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`Email ${member.name}`}
+                      title={member.email}
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.linkedin_link && (
+                    <a
+                      href={member.linkedin_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`${member.name} on LinkedIn`}
+                      title="LinkedIn"
+                      className="text-slate-500 hover:text-[#0284C7] transition-colors"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true">
+                        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              ))}
           </div>
         </div>
       </motion.div>
