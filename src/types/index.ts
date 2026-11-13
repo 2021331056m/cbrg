@@ -35,7 +35,8 @@ export interface Member {
   research_interest: string | null;
   undergraduate_research: string | null; 
   email: string | null;
-  scholar_link: string | null;
+  linkedin_link: string | null;
+  profile_link: string | null;
   is_alumni: boolean;
   sort_order: number;
   created_at: string;

@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS members (
   photo_url         TEXT,
   research_interest TEXT,
   email             TEXT,
-  scholar_link      TEXT,
+  linkedin_link      TEXT,
   is_alumni         BOOLEAN NOT NULL DEFAULT FALSE,
   sort_order        INT DEFAULT 0,
   created_at        TIMESTAMPTZ DEFAULT NOW()

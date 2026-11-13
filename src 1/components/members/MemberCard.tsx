@@ -80,9 +80,9 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
                 <span>{member.email}</span>
               </a>
             )}
-            {member.scholar_link && (
+            {member.linkedin_link && (
               <a
-                href={member.scholar_link}
+                href={member.linkedin_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"

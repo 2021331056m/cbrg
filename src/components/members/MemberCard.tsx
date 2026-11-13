@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, ExternalLink, User, X } from "lucide-react";
+import { Mail, User, X } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import type { Member, MemberRole } from "@/types";
 import { withBasePath } from "@/lib/utils";
@@ -30,6 +30,14 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
 
   useEffect(() => setMounted(true), []);
 
+  const handleOpen = () => {
+    if (member.profile_link) {
+      window.open(member.profile_link, "_blank", "noopener,noreferrer");
+    } else {
+      setOpen(true);
+    }
+  };
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -46,7 +54,8 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
         transition={{ duration: 0.4 }}
         role="button"
         tabIndex={0}
-        onClick={() => setOpen(true)}
+        onClick={handleOpen}
+        onKeyDown={(e) => e.key === "Enter" && handleOpen()}
         className={`h-full cursor-pointer bg-white border border-slate-200 hover:border-[#0284C7] shadow-sm hover:shadow-md rounded-xl p-6 transition-all group ${
           featured ? "md:col-span-2 lg:col-span-3" : ""
         }`}
@@ -119,15 +128,18 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
                   <span>{member.email}</span>
                 </a>
               )}
-              {member.scholar_link && (
+              {member.linkedin_link && (
                 <a
-                  href={member.scholar_link}
+                  href={member.linkedin_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#0284C7] transition-colors"
                 >
-                  <ExternalLink className="w-3 h-3 text-[#0284C7]" /> Google Scholar
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#0284C7]" fill="currentColor" aria-hidden="true">
+                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
+                  </svg>
+                  LinkedIn
                 </a>
               )}
             </div>

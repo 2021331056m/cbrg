@@ -32,7 +32,7 @@ export interface Member {
   photo_url: string | null;
   research_interest: string | null;
   email: string | null;
-  scholar_link: string | null;
+  linkedin_link: string | null;
   is_alumni: boolean;
   sort_order: number;
   created_at: string;
