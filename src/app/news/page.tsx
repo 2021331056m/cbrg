@@ -4,7 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import Badge from "@/components/ui/Badge";
 import { ExternalLink } from "lucide-react";
 import type { NewsFeed, NewsSource } from "@/types";
-import { formatDate, truncate } from "@/lib/utils";
+import { formatDate, truncate, withBasePath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "News",
@@ -86,7 +86,7 @@ export default async function NewsPage() {
               >
                   <div className="w-full overflow-hidden bg-slate-100">
                     <img
-                      src={item.image_url || "https://placehold.co/800x400?text=No+Image"}
+                      src={withBasePath(item.image_url || "https://placehold.co/800x400?text=No+Image")}
                       alt={item.title}
                       className="w-full h-56 sm:h-64 object-cover object-center"
                     />

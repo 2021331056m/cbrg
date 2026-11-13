@@ -5,7 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageScrollTransition from "@/components/layout/PageScrollTransition";
 import PageTransitionWrapper from "@/components/layout/PageTransitionWrapper";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+import { withBasePath } from "@/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,14 +19,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   icons: {
-    icon: "/favicon.png",
-    apple: "/apple-icon.png",
+    icon: withBasePath("/favicon.png"),
+    apple: withBasePath("/apple-icon.png"),
   },
   openGraph: {
     type: "website",
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: withBasePath("/images/og-image.jpg"),
         width: 1200,
         height: 630,
         alt: SITE_NAME,
