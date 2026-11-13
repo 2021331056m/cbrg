@@ -45,6 +45,14 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
+    const popupSections: [string, string | null][] = [
+    ["Education", member.education],
+    ["Research Interest", member.research_interest],
+    ["Undergraduate Research Project", member.undergraduate_research],
+    ["Publications", member.publications],
+    ["Achievements", member.achievements],
+  ];
+
   return (
     <>
       <motion.div
@@ -93,16 +101,7 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
               <p className="text-slate-500 text-xs mt-0.5">{member.department}</p>
             )}
 
-            {member.undergraduate_research && (
-              <>
-                <p className="mt-3 text-slate-600 text-xs leading-relaxed">
-                  Undergraduate Research Project:
-                </p>
-                <p className="text-slate-700 text-xs font-semibold line-clamp-3">
-                  {member.undergraduate_research}
-                </p>
-              </>
-            )}
+           
 
             {member.research_interest && (
               <>
@@ -218,26 +217,18 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
                     <p className="text-slate-500 text-sm">{member.department}</p>
                   )}
 
-                  {member.undergraduate_research && (
-                    <div className="mt-5">
-                      <p className="text-xs uppercase tracking-wide text-slate-400">
-                        Undergraduate Research Project
-                      </p>
-                      <p className="mt-1 text-slate-800 text-sm font-semibold">
-                        {member.undergraduate_research}
-                      </p>
-                    </div>
-                  )}
-
-                  {member.research_interest && (
-                    <div className="mt-5">
-                      <p className="text-xs uppercase tracking-wide text-slate-400">
-                        Research Interest
-                      </p>
-                      <p className="mt-1 text-slate-800 text-sm font-semibold">
-                        {member.research_interest}
-                      </p>
-                    </div>
+                {popupSections.map(
+                    ([label, value]) =>
+                      value && (
+                        <div key={label} className="mt-5">
+                          <p className="text-xs uppercase tracking-wide text-slate-400">
+                            {label}
+                          </p>
+                          <p className="mt-1 text-slate-800 text-sm font-semibold whitespace-pre-line">
+                            {value}
+                          </p>
+                        </div>
+                      )
                   )}
                 </motion.div>
               </motion.div>

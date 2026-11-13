@@ -33,7 +33,10 @@ export interface Member {
   role: MemberRole;
   photo_url: string | null;
   research_interest: string | null;
-  undergraduate_research: string | null; 
+  undergraduate_research: string | null;
+  education: string | null;
+  publications: string | null;
+  achievements: string | null; 
   email: string | null;
   linkedin_link: string | null;
   profile_link: string | null;
