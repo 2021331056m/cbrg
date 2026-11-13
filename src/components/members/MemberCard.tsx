@@ -65,6 +65,16 @@ export default function MemberCard({ member, featured = false }: MemberCardProps
             <p className="text-slate-500 text-xs mt-0.5">{member.department}</p>
           )}
             
+          {member.undergraduate_research && (
+            <>
+              <p className="mt-3 text-slate-600 text-xs leading-relaxed">
+                Undergraduate Research Project:
+              </p>
+              <p className="text-slate-700 text-xs font-semibold">
+                {member.undergraduate_research}
+              </p>
+            </>
+          )}
 
           {member.research_interest && (
            <>

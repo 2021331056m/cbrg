@@ -33,6 +33,7 @@ export interface Member {
   role: MemberRole;
   photo_url: string | null;
   research_interest: string | null;
+  undergraduate_research: string | null; 
   email: string | null;
   scholar_link: string | null;
   is_alumni: boolean;

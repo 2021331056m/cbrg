@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning >
         <Navbar />
         <main className="flex-1 flex flex-col">
           <PageTransitionWrapper>{children}</PageTransitionWrapper>
